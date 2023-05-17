@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+  <title>Crud Operation</title>
+</head>
+<body>
+<div class="container-fluid d-flex justify-content-center text-center mt-2 bg-light">
+  <div class="row mr-3">
+    <div class="col-sm-8 mb-2">
+      <a href="">Users</a>
+    </div>
+  </div>
+  <div class="row mr-3">
+    <div class="col-sm-8 mb-2">
+      <a th:href="@{/batallian/list}">Batarians</a>
+    </div>
+  </div>
+  <div class="row mr-3">
+    <div class="col-sm-8 mb-2">
+      <a  th:href="@{/soldier/list}">Soldiers</a>
+    </div>
+  </div>
+  <div class="row mr-3">
+    <div class="col-sm-8 mb-2">
+      <a th:href="@{/department/list}">Depertment</a>
+
+    </div>
+  </div>
+  <div class="row ml-5">
+    <div class="col-sm-8 mb-2">
+      <a class="btn btn-success" href="">Logout</a>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="container mt-4">
+  <a class="btn btn-success mb-2 ml-4" th:href="@{/department/new}">Add New Department</a>
+  <table class="table">
+    <thead>
+    <tr>
+      <th>ID</th>
+      <th scope="col">DepartmentNumber</th>
+      <th scope="col">DepatmentName</th>
+
+      <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <th:block th:each=" department : ${listDepartment}">
+      <tr>
+
+        <td>[[${department.id}]]</td>
+        <td>[[${department.depart_no}]]</td>
+        <td>[[${department.depart_name}]]</td>
+        <td>
+          <a class="btn btn-success" href="#">Edit</a>
+          <a class="btn btn-danger" href="#">Delete</a>
+        </td>
+      </tr>
+      </td>
+    </th:block>
+
+
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <title>Crud Operation</title>
+</head>
+<body>
+<div class="container-fluid d-flex justify-content-center text-center mt-2 bg-light">
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a href="">Users</a>
+        </div>
+    </div>
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a th:href="@{/batallian/list}">Batarians</a>
+        </div>
+    </div>
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a  th:href="@{/soldier/list}">Soldiers</a>
+        </div>
+    </div>
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a th:href="@{/department/list}">Depertment</a>
+
+        </div>
+    </div>
+    <div class="row ml-5">
+        <div class="col-sm-8 mb-2">
+            <a class="btn btn-success" href="">Logout</a>
+
+        </div>
+    </div>
+
+</div>
+
+<div class="container mt-4">
+    <a class="btn btn-success mb-2 ml-4" th:href="@{/newsoldier}">Add New Soldier</a>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th scope="col">ArmyNumber</th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">DOB</th>
+            <th scope="col">JoiningDate</th>
+            <th scope="col">Rank</th>
+            <th scope="col">Batarian</th>
+            <th scope="col">Department</th>
+            <th scope="col">Action</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each=" soldier : ${listSoldier}">
+        <tr>
+
+            <td>[[${soldier.id}]]</td>
+            <td>[[${soldier.army_no}]]</td>
+            <td>[[${soldier.firstname}]]</td>
+            <td>[[${soldier.lastname}]]</td>
+            <td>[[${soldier.dob}]]</td>
+            <td>[[${soldier.joined_date}]]</td>
+            <td>[[${soldier.rank}]]</td>
+            <td>[[${soldier.battalion}]]</td>
+            <td>[[${soldier.department}]]</td>
+            <td>[[${soldier.battalion}]]</td>
+            <td>
+                <a class="btn btn-success" th:href="@{'/soldier/edit/' +${soldier.id}}">Edit</a>
+                <a class="btn btn-danger" th:href="@{'/soldier/delete/' +${soldier.id}}">Delete</a>
+            </td>
+        </tr>
+            </td>
+        </th:block>
+
+
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
